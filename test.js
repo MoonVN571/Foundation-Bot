@@ -297,7 +297,7 @@ client.on("message", async message => {
 		if(warnings === null) warnings = 0;
 
 		const success = new Discord.MessageEmbed()
-							.setTitle('[Resetwarns Command]')
+							.setTitle('[Warnings Command]')
 							.setDescription(`Hiện tại bạn có **${warnings}** cảnh cáo.`)
 							.setColor(color)
 							.setFooter(footer)
