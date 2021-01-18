@@ -151,6 +151,15 @@ client.on("message", async message => {
 			message.delte();
 		}, 15000)
 	}
+	if(command === '$vote') {
+		if (message.author.id === '404589891893329931') {
+			const co1 = client.emojis.cache.find(emoji => emoji.name === "Foundation_flag");
+			const co2 = client.emojis.cache.find(emoji => emoji.name === "Foundation_flag2");
+			message.react(co1).then(msg => {
+				message.react(co2)
+			})
+		}
+	}
 
 	// Warning command
 	if(command === 'warn') {
@@ -291,7 +300,7 @@ client.on("message", async message => {
 					.setTimestamp();
 
 		message.channel.send(success).then(msg => {
-			msg.delte({ timeout: 10000 });
+			msg.delete({ timeout: 10000 });
 		});
 
 		setTimeout(function() {
