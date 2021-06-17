@@ -51,6 +51,12 @@ client.on('guildMemberAdd', (member) => {
     }, 1 * 1000);
 });
 
+client.on('guildMemberRemove', (member) => {
+    client.channels.cache.get('854899174474776576').send(`${member.user.tag} đã thoát!`).catch(
+        e => client.channels.cache.get('854899174474776576').send(("Send leave debug: " + e))
+    );
+});
+
 client.on("message", message => {
     if (message.author.bot || message.channel.type == "dm" || message.author == client.user) return;
 
