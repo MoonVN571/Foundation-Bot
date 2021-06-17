@@ -111,6 +111,7 @@ client.on("message", message => {
 
     try{
         cmd.execute(client, message, args);
+        message.channel.stopTyping();
     }catch(err) {
         message.channel.stopTyping();
         client.channels.cache.get('854899174474776576').send(Command + " " + cmdName + " error : " + err);
