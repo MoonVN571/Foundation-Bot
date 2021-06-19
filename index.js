@@ -60,6 +60,15 @@ client.on('guildMemberRemove', (member) => {
 client.on("message", message => {
     if (message.author.bot || message.channel.type == "dm" || message.author == client.user) return;
 
+    let star = message.guild.roles.cache.find(r => r.id === '758298370535587861');
+	let dot = message.guild.roles.cache.find(r => r.id === '792019422264819723');
+	let commander = message.guild.roles.cache.find(r => r.id === '760489374545739787');
+
+	// Team
+	let team = message.member.roles.cache.find(r => r.id === '758327218140610610');
+
+	let all = star || dot || commander;
+
 	// Auto react infor
 	if(message.channel.id === '792631698147377192') {
 		const up = client.emojis.cache.find(emoji => emoji.name === "up");
@@ -88,15 +97,6 @@ client.on("message", message => {
 
     if(!cmd) return;
 	
-    let star = message.guild.roles.cache.find(r => r.id === '758298370535587861');
-	let dot = message.guild.roles.cache.find(r => r.id === '792019422264819723');
-	let commander = message.guild.roles.cache.find(r => r.id === '760489374545739787');
-
-	// Team
-	let team = message.member.roles.cache.find(r => r.id === '758327218140610610');
-
-	let all = star || dot || commander;
-
     client.star = star;
     client.dot = dot;
     client.commander = commander;
