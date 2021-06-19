@@ -13,7 +13,7 @@ module.exports = {
                     .setDescription(`Bạn không thể dùng được lệnh này.`)
                     .setColor(client.config.color);
 
-        if(!message.guild.member(message.author).hasPermission("MANAGE_CHANNELS"))
+        if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS"))
             return message.channel.send(cancelexecute)
 
         var reason = args.join(" ").slice(22) || "None";
