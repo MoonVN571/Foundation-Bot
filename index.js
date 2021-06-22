@@ -45,6 +45,7 @@ client.on('guildMemberAdd', (member) => {
         var embed = new MessageEmbed()
                         .setTitle("FDT Team")
                         .setDescription("Chào mừng bạn đã đến với **Foundation**!\n\n")
+                        .setColor('4d4d4d')
                         .setTimestamp();
 
         member.user.send(embed).catch(e => client.channels.cache.get('854899174474776576').send("Member add debug: " + e));
@@ -71,13 +72,10 @@ client.on("message", message => {
 
 	// Auto react infor
 	if(message.channel.id === '792631698147377192') {
-		const up = client.emojis.cache.find(emoji => emoji.name === "up");
-		const down = client.emojis.cache.find(emoji => emoji.name === "down");
-
 		if(all) return;
 
-		message.react(up).then(() => {
-            message.react(down);
+		message.react("👍").then(() => {
+            message.react("👎");
         });
 	}
 
@@ -113,7 +111,6 @@ client.on("message", message => {
         cmd.execute(client, message, args);
         message.channel.stopTyping();
     }catch(err) {
-        message.channel.stopTyping();
         client.channels.cache.get('854899174474776576').send(Command + " " + cmdName + " error : " + err);
     }
 });

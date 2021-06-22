@@ -28,7 +28,7 @@ module.exports = {
             .addField("ID:", `${user.id}`, true)
             .addField("Biệt danh:", `${member.nickname !== null ? `${member.nickname}` : 'Không'}`, true)
             .addField("Trạng thái:", `${stt}`, true)
-            .addField("Ngày vào Shop:", `${member.joinedAt}`, true)
+            .addField("Ngày vào server:", `${member.joinedAt}`, true)
             .addField("Ngày tạo Account:", `${user.createdAt}`, true) 
             .addField("Roles:", member.roles.cache.map(roles => `${roles.name}`).join(', ').replace(", @everyone", "").replace("@everyone", "None"), true)
             .setFooter(`Yều cầu: ${message.author.tag}`);
