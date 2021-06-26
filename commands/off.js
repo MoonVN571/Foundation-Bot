@@ -25,7 +25,7 @@ module.exports = {
 		let channel = client.channels.cache.get("793454375438778369");
 
 		const embed = new MessageEmbed()
-					.setColor(color)
+					.setColor(client.config.color)
 					.setTitle('[Offlines]')
 					.setDescription(`**${message.author.username}**: ${say}`)
 					.setFooter(footer)
